@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long 
+#define pb push_back
+
+void solve(){
+    ll n; cin>>n;
+    string s; cin>>s;
+
+    ll ans=0;
+
+    for(ll i=1; i<n; ++i){
+        if(s[i]==s[i-1]){
+            ans++;
+            if(i==(n-1)){
+                if(s[i]=='R') s[i]='B';
+                else if(s[i]=='B') s[i]='G';
+                else if(s[i]=='G') s[i]='R';
+            }   
+            else{
+                if(s[i-1]=='R' && s[i+1]=='R') s[i]='B';
+                else if(s[i-1]=='R' && s[i+1]=='G') s[i]='B';
+                else if(s[i-1]=='R' && s[i+1]=='B') s[i]='G';
+
+                else if(s[i-1]=='B' && s[i+1]=='B') s[i]='G';
+                else if(s[i-1]=='B' && s[i+1]=='R') s[i]='G';
+                else if(s[i-1]=='B' && s[i+1]=='G') s[i]='R';
+
+                else if(s[i-1]=='G' && s[i+1]=='G') s[i]='R';
+                else if(s[i-1]=='G' && s[i+1]=='B') s[i]='R';
+                else if(s[i-1]=='G' && s[i+1]=='R') s[i]='B';
+            }
+        }
+    }
+    cout<<ans <<endl <<s <<endl;
+}
+
+int main(){
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
