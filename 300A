@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define pb push_back
+
+void solve(){
+    ll n; cin>>n;
+    vector<ll> v(n);
+    for(auto &i: v) cin>>i;
+
+    ll less=0;
+    ll pos_less=0;
+    for(ll i=0; i<n; ++i) if(v[i]<0){
+            less=v[i];
+            pos_less=i;
+            break;
+    }
+    
+    ll zero=0;
+    for(ll i=0; i<n; ++i) if(v[i]==0) zero++;
+
+    ll sec_neg_pos=-1;
+
+    ll neg=-1;
+    for(ll i=0; i<n; ++i) if(v[i]<0) neg++;
+    
+    ll more=(n-1-zero);
+    if(neg%2==1){
+        more--;
+        zero++;
+        for(ll i=0; i<n; ++i) if(v[i]<0 && i!=pos_less){
+            sec_neg_pos=i;
+            break;
+        }
+    }
+
+    cout<<1 <<' ' <<less <<endl;
+    cout<<more;
+    for(ll i=0; i<n; ++i){
+        if(i!=pos_less && i!=sec_neg_pos && v[i]!=0){
+            cout<<' ' <<v[i];
+        }
+    }
+    cout<<endl;
+
+    cout<<zero;
+    for(ll i=0; i<n; ++i){
+        if(v[i]==0 || i==sec_neg_pos){
+            cout<<' ' <<v[i];
+        }
+    }
+    cout<<endl;
+
+}
+
+int main(){
+    ll t=1;
+    // cin>>t;
+
+    while(t--)
+        solve();
+}
