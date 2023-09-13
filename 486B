@@ -1,0 +1,72 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+
+void solve(){
+    ll row, col; cin>>row >>col;
+
+    ll arr[row][col];
+    for(ll i=0; i<row; ++i)
+        for(ll j=0; j<col; ++j)
+            cin>>arr[i][j];
+    
+    ll dum[row][col];
+    for(ll i=0; i<row; ++i)
+        for(ll j=0; j<col; ++j)
+            dum[i][j]=arr[i][j];
+
+
+    for(ll i=0; i<row; ++i){
+        for(ll j=0; j<col; ++j){
+            if(arr[i][j]==0){
+                for(ll k=0; k<col; ++k) dum[i][k]=0;
+                for(ll k=0; k<row; ++k) dum[k][j]=0;
+            }
+        }
+    }
+
+    bool f=1, ff=1;
+    for(ll i=0; i<row; ++i)
+        for(ll j=0; j<col; ++j){
+            if(dum[i][j]) f=0;
+            if(arr[i][j]) ff=0;
+        }
+
+    if(f != ff){
+        cout<<"NO" <<endl;
+        return;
+    }
+
+    for(ll i=0; i<row; ++i){
+        for(ll j=0; j<col; ++j){
+            if(arr[i][j]){
+                bool f1=1, f2=1;
+                for(ll k=0; k<col; ++k) if(arr[i][k]==0) f1=0;
+                for(ll k=0; k<row; ++k) if(arr[k][j]==0) f2=0;
+
+                if(f1==0 && f2==0){
+                    cout<<"NO" <<endl;
+                    return;
+                }
+            }
+        }
+    }
+
+    cout<<"YES" <<endl;
+    for(ll i=0; i<row; ++i){
+        for(ll j=0; j<col; ++j)
+            cout<<dum[i][j] <<' ';
+
+        cout<<endl;
+    }
+
+}
+
+int main(){
+
+    int t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
