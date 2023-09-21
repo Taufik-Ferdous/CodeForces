@@ -1,0 +1,65 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 21-September-2023  11:30:37
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+#define fo(i,n) for(ll i=0; i<n; ++i)
+#define Fo(i,k,n) for(ll i=k;k<n?i<n:i>=n;i<n?++i:--i)
+#define deb(x) cout<<#x <<"=" <<x <<endl
+#define deb2(x,y) cout<<#x <<"=" <<x <<" " <<#y <<"=" <<y <<endl
+#define pb push_back
+#define mp make_pair
+#define F first
+#define S second
+#define all(x) x.begin(), x.end()
+#define allr(x) x.rbegin(), x.rend()
+#define endl "\n"
+
+typedef pair<ll,ll>      pl;
+typedef vector<ll>       vl;
+
+const int mod = 1e9+7;
+const ll N = 1e7+10;
+//====================================
+
+void solve(){
+    string a, b, c; cin>>a >>b >>c;
+    ll as=a.size(), bs=b.size(), cs=c.size();
+
+    if(as+bs > cs){
+        cout<<"NO" <<endl;
+        return;
+    }
+    if(as+bs < cs){
+        cout<<"NO" <<endl;
+        return;
+    }
+
+    map<char,ll> m;
+    for(auto i: a) m[i]++;
+    for(auto i: b) m[i]++;
+    for(auto i: c) m[i]--;
+    for(auto i: c){
+        if(m[i] != 0){
+            cout<<"NO" <<endl;
+            return;
+        }
+    }
+    cout<<"YES" <<endl;
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
