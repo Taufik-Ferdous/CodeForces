@@ -1,0 +1,78 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define pb push_back
+
+#define all(x) x.begin(),x.end()
+#define allr(x) x.rbegin(),x.rend()
+
+void solve(){
+    string s; cin>>s;
+
+    ll l=0, r=0;
+    bool L=1, R=0;
+
+    ll lm=0, rm=0;
+
+    for(ll i=0; i<s.size(); ++i){
+        if(s[i]=='S'){
+            if(L){
+                l++;
+                if((l-r>1 && l>4) || l==10){
+                    lm++;
+                    l=0, r=0;
+                }
+            }
+            else if(R){
+                r++;
+                if((r-l>1 && r>4) || r==10){
+                    rm++;
+                    l=0, r=0;
+                }
+            }
+                    
+        }
+        else if(s[i]=='R'){
+            R=!R;
+            L=!L;
+            if(L){
+                l++;
+                if((l-r>1 && l>4) || l==10){
+                    lm++;
+                    l=0, r=0;
+                }
+            }
+            else if(R){
+                r++;
+                if((r-l>1 && r>4) || r==10){
+                    rm++;
+                    l=0, r=0;
+                }
+            }
+        }
+        else if(s[i]=='Q'){
+            if(lm==2)
+                cout<<lm <<" (winner) - " <<rm <<endl;
+            
+            else if(rm==2)
+                cout<<lm <<" - " <<rm <<" (winner)" <<endl;
+            
+            else{
+                cout<<lm <<" (" <<l;
+                if(L) cout<<"*";
+                cout<<") - " <<rm <<" (" <<r;
+                if(R) cout<<"*";
+                cout<<")" <<endl;
+            }
+        }
+    }
+
+}
+
+int main(){
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
