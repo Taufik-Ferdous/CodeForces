@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define pb push_back
+
+#define all(x) x.begin(),x.end()
+#define allr(x) x.rbegin(),x.rend()
+
+void solve(){
+    ll n; cin>>n;
+    ll bal=100;
+    ll ans=bal;
+    
+    for(ll i=0; i<n; ++i){
+        ll a; cin>>a;
+        bal+=a;
+        if(bal>ans) ans=bal;
+    }
+    cout<<ans <<endl;
+}
+
+int main(){
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
