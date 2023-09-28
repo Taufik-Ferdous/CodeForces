@@ -32,31 +32,26 @@ void solve(){
     ll n, m; cin>>n >>m;
     vl v(m);
     for(auto &i: v) cin>>i;
-    sort(allr(v));
+    sort(all(v));
 
     vl dum=v;
-    ll b=0, i=0, count=0;
-    fo(i,n){
-        sort(allr(dum));
-        b+=dum[0];
-        --dum[0];
+    ll tem=n, ans2=0;
+    for(ll i=0; i<m, tem>0; ++i){
+        ll temm=v[i];
+        while(temm>0 && tem>0){
+            ans2+=temm;
+            --tem;
+            --temm;
+        }
     }
-    cout<<b <<' ';
 
-    sort(all(v));
-    dum=v;
-    ll a=0, j=0, d=n;
-    while(d--){
-        if(dum[j]){
-            a+=dum[j];
-            --dum[j];
-        }
-        else{
-            ++j;
-            ++d;
-        }
+    ll ans1=0;
+    fo(i,n){
+        sort(allr(v));
+        ans1+=v[0];
+        --v[0];
     }
-    cout<<a <<endl;
+    cout<<ans1 <<' ' <<ans2 <<endl;
 }
 
 
