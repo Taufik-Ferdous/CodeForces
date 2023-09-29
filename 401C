@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define all(x) x.begin(),x.end()
+
+void solve(){
+    ll z, o; cin>>z >>o;
+
+    if(o+1<z){
+        cout<<-1 <<endl;
+        return;
+    }
+    ll dum=o/2;
+    if(o%2) dum++;
+    if(z<dum-1){
+        cout<<-1 <<endl;
+        return;
+    }
+    
+    else{
+        while(o>0 || z>0){
+            if(o>z && z){
+                cout<<"110";
+                o-=2, z--;
+            }
+            else if(o==z){
+                cout<<"10";
+                o--, z--;
+            }
+            else if(z>0 && o){
+                cout<<"010";
+                z-=2, o--;
+            }
+            else if(z){
+                cout<<'0';
+                z--;
+            }
+            else if(o){
+                if(o>1){
+                    cout<<"11";
+                    o-=2;
+                }
+                else{
+                    cout<<'1';
+                    o--;
+                }
+            }
+        }
+    }
+}
+
+int main(){
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+    
+}
