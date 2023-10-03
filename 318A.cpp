@@ -1,15 +1,13 @@
 /**
- *    Author: lulu
- *    Created:  25-July-2023  13:28:22
+ *    Author: lulu (Tasmir_)
+ *    Created: 04-October-2023  00:26:41
 **/
 #include<bits/stdc++.h>
 using namespace std;
 
 #define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 
-#define ll long long 
-#define ull unsigned long long
-#define ld long double
+#define ll long long
 
 #define fo(i,n) for(ll i=0; i<n; ++i)
 #define Fo(i,k,n) for(ll i=k;k<n?i<n:i>=n;i<n?++i:--i)
@@ -20,52 +18,35 @@ using namespace std;
 #define F first
 #define S second
 #define all(x) x.begin(), x.end()
+#define allr(x) x.rbegin(), x.rend()
 #define endl "\n"
 
-typedef pair<int,int>    pii;
 typedef pair<ll,ll>      pl;
-typedef vector<int>      vi;
 typedef vector<ll>       vl;
-typedef vector<pii>      vpii;
-typedef vector<pl>       vpl;
-typedef vector<vi>       vvi;
-typedef vector<vl>       vvl;
 
 const int mod = 1e9+7;
 const ll N = 1e7+10;
 //====================================
 
 void solve(){
-    ll n, k;
-    cin>>n >>k;
-    ll odd=n/2, even=n/2;
-    if(n%2!=0){
-        odd++;
-        if(k>(n/2+1)){
-            k-=(n/2+1);
-            cout<<2*k <<endl;
-        }
-        else{
-            cout<<2*k-1 <<endl;
-        }
+    ll n, k; cin>>n >>k;
+
+    if(n%2==0){
+        if(k<=n/2) cout<<(k*2-1);
+        else cout<<(k-n/2)*2;
     }
     else{
-        if(k>(n/2)){
-            k-=(n/2);
-            cout<<2*k <<endl;
-        }
-        else{
-            cout<<2*k-1 <<endl;
-        }
+        if(k<=(n+1)/2) cout<<(k*2-1);
+        else cout<<(k-(n+1)/2)*2;
     }
 }
+
 
 int main(){
     optimize();
 
     ll t=1;
-    //cin>>t;
-    //deb(t);
+    // cin>>t;
     while(t--)
         solve();
 }
