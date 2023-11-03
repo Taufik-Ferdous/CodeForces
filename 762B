@@ -1,0 +1,94 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 03-November-2023  09:02:39
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+#define fo(i,n) for(ll i=0; i<n; ++i)
+#define Fo(i,k,n) for(ll i=k;k<n?i<n:i>=n;i<n?++i:--i)
+#define deb(x) cout<<#x <<"=" <<x <<endl
+#define deb2(x,y) cout<<#x <<"=" <<x <<" " <<#y <<"=" <<y <<endl
+#define pb push_back
+#define mp make_pair
+#define F first
+#define S second
+#define all(x) x.begin(), x.end()
+#define allr(x) x.rbegin(), x.rend()
+#define endl "\n"
+
+typedef pair<ll,ll>      pl;
+typedef vector<ll>       vl;
+
+const int mod = 1e9+7;
+const ll N = 1e7+10;
+//====================================
+
+void solve(){
+    ll usb, ps, both; cin>>usb >>ps >>both;
+    ll n; cin>>n;
+    vl v_usb, v_ps;
+
+    for(ll i=0; i<n; ++i){
+        ll a; cin>>a;
+        string s; cin>>s;
+        if(s=="USB") v_usb.pb(a);
+        else v_ps.pb(a);
+    }
+    sort(all(v_ps));
+    sort(all(v_usb));
+
+    ll pc=0, price=0;
+
+    ll p1=0, p2=0;
+
+    ll len_usb = v_usb.size(), len_ps = v_ps.size();
+    
+    for(ll i=0; i<usb; ++i){
+        if(i<len_usb){
+            ++pc;
+            price+=v_usb[i];
+            p1=i+1;
+            // cout<<"only usb " <<v_usb[i] <<endl;
+        }
+    }
+    for(ll i=0; i<ps; ++i){
+        if(i<len_ps){
+            ++pc;
+            price+=v_ps[i];
+            p2=i+1;
+            // cout<<"only ps " <<v_ps[i] <<endl;
+        }
+    }
+
+
+    for(ll i=0; i<both; ++i){
+        if((p1<len_usb && p2<len_ps && v_usb[p1]<=v_ps[p2]) || (p1<len_usb && p2>=len_ps)){
+            pc++;
+            price+=v_usb[p1];
+            ++p1;
+            // cout<<"both_usb " <<v_usb[i] <<endl;
+        }
+        else if((p1<len_usb && p2<len_ps && v_usb[p1]>=v_ps[p2]) || (p1>=len_usb && p2<len_ps)){
+            pc++;
+            price+=v_ps[p2];
+            ++p2;
+            // cout<<"both_ps " <<v_ps[i] <<endl;
+        }
+    }
+    cout<<pc <<' ' <<price <<endl;
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
