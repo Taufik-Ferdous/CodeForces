@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void tcase() {
+	string s; cin >> s;
+	map<char, int>fre;
+	for (char ch : s) {
+		fre[ch]++;
+	}
+	int cnt = 0;
+	for (auto ch : s) {
+		if (ch == '0' && fre['1']) {
+			fre['1']--;
+		} else if (ch == '1' && fre['0']) {
+			fre['0']--;
+		} else {
+			break;
+		}
+		cnt++;
+	}
+	cout << int(s.size()) - cnt << '\n';
+}
+int32_t main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+
+	int t = 1;
+	cin >> t;
+
+	while (t-- > 0)
+		tcase();
+}
