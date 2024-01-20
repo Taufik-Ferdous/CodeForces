@@ -1,0 +1,41 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 20-January-2024  22:33:01
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+	// length of the strings
+	ll n; cin>>n;
+	string a, b, c; cin>>a >>b >>c;
+
+	//checking if the three strings differ or not
+	for(ll i=0; i<n; ++i){
+		// if both index of a,b are same and c differs
+		// or both a,b differs and c differs from a,b
+		// even for ones then okay else not okay
+		if( (a[i]==b[i] && a[i]!=c[i]) ||
+			(a[i]!=b[i] && a[i]!=c[i] && b[i]!=c[i])){
+				cout<<"YES" <<'\n';
+				return;
+			}
+	}
+	cout<<"NO" <<"\n";
+}
+
+
+int main(){
+	optimize();
+
+	ll t=1;
+	cin>>t;
+	while(t--)
+		solve();
+}
