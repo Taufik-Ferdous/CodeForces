@@ -11,6 +11,8 @@ using namespace std;
 
 //====================================
 
+// If there are no 0 then the answer is -1
+
 // If there is less than 9 '5' only
 // '0' goes with the given conditions
 // If there is more than 9 '5' then
