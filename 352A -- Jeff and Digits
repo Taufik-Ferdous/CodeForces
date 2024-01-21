@@ -1,0 +1,46 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 21-January-2024  20:14:11
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+// If there is less than 9 '5' only
+// '0' goes with the given conditions
+// If there is more than 9 '5' then
+// max number of '5' that is devisable
+// by 9 and then all the 0 will be the answer
+
+void solve(){
+	ll n; cin>>n;
+	ll f=0, z=0;
+	for(ll i=0; i<n; ++i){
+		ll a; cin>>a;
+		if(a==5) ++f;
+		else ++z;
+	}
+	if(z==0) cout<<-1 <<'\n';
+	else if(f<9) cout<<0 <<'\n';
+	else{
+		ll dum = f-(f%9);
+		for(ll i=0; i<dum; ++i) cout<<5;
+		for(ll i=0; i<z; ++i) cout<<0;
+		cout<<'\n';
+	}
+}
+
+
+int main(){
+	optimize();
+
+	ll t=1;
+	// cin>>t;
+	while(t--)
+		solve();
+}
