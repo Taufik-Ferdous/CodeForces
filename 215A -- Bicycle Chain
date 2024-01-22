@@ -1,0 +1,50 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 22-January-2024  17:07:53
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+	// Storing the gear values
+	ll a; cin>>a;
+	vector<ll> v1(a);
+	for(auto &i: v1) cin>>i;
+	ll b; cin>>b;
+	vector<ll> v2(b);
+	for(auto &i: v2) cin>>i;
+
+	// Cheking for the maximum rotation ratio and how many are there
+	ll ans=0, mx_r=0;
+	for(ll i=0; i<a; ++i){
+		for(ll j=0; j<b; ++j){
+			if(!(v2[j] % v1[i])){
+				ll dum = v2[j] / v1[i];
+				if(dum == mx_r){
+					++ans;
+				}
+				else if(dum>mx_r){
+					ans=1;
+					mx_r = dum;
+				}
+			}
+		}
+	}
+	cout<<ans <<'\n';
+}
+
+
+int main(){
+	optimize();
+
+	ll t=1;
+	// cin>>t;
+	while(t--)
+		solve();
+}
