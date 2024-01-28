@@ -1,0 +1,36 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 29-January-2024  00:14:38
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+	ll n; cin>>n;
+	bool a=0, b=0, c=0, d=0;
+	while(n--){
+		ll aa, bb; cin>>aa >>bb;
+		if(aa > 0) a=1;
+		else if(aa < 0) b=1;
+		if(bb > 0) c=1;
+		else if(bb < 0) d=1;
+	}
+	if(a && b && c && d) cout<<"NO" <<'\n';
+	else cout<<"YES" <<'\n';
+}
+
+
+int main(){
+	optimize();
+
+	ll t=1;
+	cin>>t;
+	while(t--)
+		solve();
+}
