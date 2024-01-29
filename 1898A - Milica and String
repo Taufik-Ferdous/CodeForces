@@ -1,0 +1,51 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 29-January-2024  21:03:06
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+	ll len, n; cin>>len >>n;
+	string s; cin>>s;
+
+	ll count=0;
+	for(auto i: s) if(i=='B') ++count;
+	if(count>n){
+		cout<<1 <<'\n';
+		for(ll i=0; i<len; ++i){
+			if(s[i]=='B') --count;
+			if(count==n){
+				cout<<i+1 <<" A" <<'\n';
+				break;
+			}
+		}
+	}
+	else if(count<n){
+		cout<<1 <<'\n';
+		for(ll i=0; i<len; ++i){
+			if(s[i]=='A') ++count;
+			if(count==n){
+				cout<<i+1 <<" B" <<'\n';
+				break;
+			}
+		}
+	}
+	else cout<<0 <<'\n';
+}
+
+
+int main(){
+	optimize();
+
+	ll t=1;
+	cin>>t;
+	while(t--)	
+		solve();
+}
