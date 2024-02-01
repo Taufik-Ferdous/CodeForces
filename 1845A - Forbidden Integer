@@ -1,0 +1,48 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 01-February-2024  22:12:14
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n, x, k; cin>>n >>k >>x;
+    // If we have 1 then we can make any number with it
+    if(x!=1){
+        cout<<"YES" <<'\n' <<n <<'\n';
+        for(ll i=0; i<n; ++i) cout<<1 <<' ';
+        cout<<'\n';
+    }
+    // Otherwise we need to have 2 to cover the even numbers
+    // and 3 to cover the odd numbers
+    else{
+        if(n==1) cout<<"NO" <<'\n';
+        else if(n%2==0 && k>=2){
+            cout<<"YES" <<'\n' <<n/2 <<'\n';
+            for(ll i=0; i<n/2; ++i) cout<<2 <<' ';
+            cout<<'\n';
+        }
+        else if(n%2==1 && k>2){
+            cout<<"YES" <<'\n' <<(n/2) <<'\n';
+            for(ll i=0; i<(n/2)-1; ++i) cout<<2 <<' ';
+            cout<<3 <<'\n';
+        }
+        else cout<<"NO" <<'\n';
+    }
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
