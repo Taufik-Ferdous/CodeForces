@@ -1,0 +1,27 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 06-February-2024  13:03:35
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    cout<<(n*n) + ((n-1)*(n-1)) <<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
