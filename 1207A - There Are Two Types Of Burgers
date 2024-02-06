@@ -1,0 +1,65 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 06-February-2024  15:31:02
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll r, g, m; cin>>r >>g >>m;
+    ll gd, md; cin>>gd >>md;
+    r/=2;
+
+    ll ans=0;
+    if(md>gd){
+        if(r>m && r>0){
+            ans += m*md;
+            r-=m;
+        } else{
+            ans += r*md;
+            r=0;
+        }
+        if(r>g && r>0){
+            ans += g*gd;
+            r-=g;
+        } else{
+            ans += r*gd;
+            r=0;
+        }
+    } else if(md<gd){
+        if(r>g && r>0){
+            ans += g*gd;
+            r-=g;
+        } else{
+            ans += r*gd;
+            r=0;
+        }
+        if(r>m && r>0){
+            ans += m*md;
+            r-=m;
+        } else{
+            ans += r*md;
+            r=0;
+        }
+    } else if(r>0){
+        if(r>g+m) ans += (g+m)*gd;
+        else ans += r*gd;
+    }
+    cout<<ans <<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
