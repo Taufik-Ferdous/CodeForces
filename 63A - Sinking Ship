@@ -1,0 +1,42 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 07-February-2024  17:27:08
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    vector<string> r;
+    vector<string> w;
+    vector<string> m;
+    string cap;
+    for(ll i=0; i<n; ++i){
+        string a, b; cin>>a >>b;
+        if(b=="captain") cap = a;
+        else if(b=="woman" || b=="child") w.push_back(a);
+        else if(b=="rat") r.push_back(a);
+        else m.push_back(a);
+    }
+
+    for(auto i: r) cout<<i <<'\n';
+    for(auto i: w) cout<<i <<'\n';
+    for(auto i: m) cout<<i <<'\n';
+    cout<<cap <<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
