@@ -1,0 +1,60 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 06-February-2024  21:20:29
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll a, b, c; cin>>a >>b >>c;
+
+    map<ll, ll> m1, m2;
+    for(ll i=0; i<a; ++i){
+        ll dum; cin>>dum;
+        m1[dum]=1;
+    }
+    for(ll i=0; i<b; ++i){
+        ll dum; cin>>dum;
+        m2[dum]=1;
+    }
+
+    vector<ll> v(c);
+    for(auto i: v) i = 0;
+
+    ll both=0, fst=0, sec=0;
+    for(ll i=1; i<=c; ++i){
+        if(m1[i] && m2[i]) v[i-1]=2;
+        else if(m1[i]){
+            v[i-1] = 1;
+            ++fst;
+        }
+        else if(m2[i]){
+            v[i-1] = 1;
+            ++sec;
+        }
+    }
+    for(auto i: v){
+        if(i==0){
+            cout<<"NO" <<'\n';
+            return;
+        }
+    }
+    if(fst>c/2 || sec>c/2) cout<<"NO" <<'\n';
+    else cout<<"YES" <<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
