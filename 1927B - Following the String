@@ -1,0 +1,42 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 06-February-2024  20:57:30
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    vector<ll> v(n);
+    for(auto &i: v) cin>>i;
+
+    vector<char> s(n);
+    for(char i='a'; i<='z'; ++i){
+        ll trac = 0;
+        for(ll j=0; j<n; ++j){
+            if(v[j]==trac){
+                s[j]=i;
+                v[j]=-1;
+                trac++;
+            }
+        }
+    }
+    for(auto i: s) cout<<i;
+    cout<<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
