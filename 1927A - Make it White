@@ -1,0 +1,43 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 06-February-2024  15:42:20
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    string st; cin>>st;
+    ll f=-1, s=-1;
+    for(ll i=0; i<n; ++i){
+        if(st[i]=='B'){
+            f=i;
+            break;
+        }
+    }
+    for(ll i=n-1; i>=0; --i){
+        if(st[i]=='B'){
+            s=i;
+            break;
+        }
+    }
+    if(f==-1) cout<<0 <<'\n';
+    else if(f==s) cout<<1 <<'\n';
+    else cout<<s-f+1 <<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
