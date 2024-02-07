@@ -1,0 +1,45 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 07-February-2024  18:15:41
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n, a, b; cin>>n >>a >>b;
+    for(ll i=0; a*i<=n; ++i){
+        ll dum1 = (i*a);
+        ll rest = n-dum1;
+        if(rest%b == 0){
+            cout<<"YES" <<'\n';
+            cout<<i <<' ' <<rest/b <<'\n';
+            return;
+        }
+    }
+    for(ll i=0; b*i<=n; ++i){
+        ll dum1 = (i*b);
+        ll rest = n-dum1;
+        if(rest%a == 0){
+            cout<<"YES" <<'\n';
+            cout<<rest/a <<' ' <<i <<'\n';
+            return;
+        }
+    }
+    cout<<"NO" <<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
