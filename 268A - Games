@@ -1,0 +1,35 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 09-February-2024  21:26:01
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    vector<pair<ll, ll>> v(n);
+    map<ll, ll> m;
+    for(auto &i: v){
+        cin>>i.first >>i.second;
+        m[i.second]++;
+    }
+    ll ans = 0;
+    for(auto i: v) if(m[i.first]) ans+=m[i.first];
+    cout<<ans <<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
