@@ -1,0 +1,46 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 09-February-2024  10:52:49
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll row, col; cin>>row >>col;
+    char c; cin>>c;
+    
+    vector<string> v;
+    for(ll i=0; i<row; ++i){
+        string s; cin>>s;
+        v.push_back(s);
+    }
+
+    set<char> st;
+    for(ll i=0; i<row; ++i){
+        for(ll j=0; j<col; ++j){
+            if(v[i][j] == c){
+                if((i!=row-1) && v[i+1][j] != '.' && v[i+1][j] != c) st.insert(v[i+1][j]);
+                if((i!=0) && v[i-1][j] != '.' && v[i-1][j] != c) st.insert(v[i-1][j]);
+                if((j!=col-1) && v[i][j+1] != '.' && v[i][j+1] != c) st.insert(v[i][j+1]);
+                if((j!=0) && v[i][j-1] != '.' && v[i][j-1] != c) st.insert(v[i][j-1]);
+            }
+        }
+    }
+    cout<<st.size() <<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
