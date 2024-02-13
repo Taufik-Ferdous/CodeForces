@@ -1,0 +1,44 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 13-02-2024  **:**:**
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll len; cin>>len;
+	string s; cin>>s;
+    ll n; cin>>n;
+    map<char, vector<ll>> m;
+    ll count=1;
+    for(auto i: s){
+        m[i].push_back(count);
+        ++count;
+    }
+    while(n--){
+        ll ans = 0;
+        string a; cin>>a;
+        map<char, ll> m_count;
+        for(auto i: a){
+            ans = max(ans, m[i][m_count[i]]);
+            m_count[i]++;
+        }
+        cout<<ans <<'\n';
+    }
+}
+
+
+int main(){
+	optimize();
+
+	ll t=1;
+	// cin>>t;
+	while(t--)
+		solve();
+}
