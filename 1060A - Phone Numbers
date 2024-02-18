@@ -1,0 +1,44 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 18-February-2024  11:39:41
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    string s; cin>>s;
+    ll e=0, o=0;
+    for(auto i: s){
+        if(i=='8') ++e;
+        else ++o;
+    }
+    ll ans = 0;
+    while(e>0 && e+o>10){
+        --e;
+        if(o>9) o-=10;
+        else if(e+o>9){
+            e-=(10-o);
+            o=0;
+        }
+        else break;
+        ++ans;
+    }
+    cout<<ans <<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
