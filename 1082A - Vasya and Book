@@ -1,0 +1,54 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 19-February-2024  12:12:34
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n, cur, goal, dis; cin>>n >>cur >>goal >>dis;
+    if(goal<cur) swap(goal,cur);
+    bool f=1;
+    ll a=1e10, b=1e10, c=1e10;
+    if((goal-cur)%dis==0){
+        a = (goal-cur)/dis;
+        f=0;
+    }
+    if((goal-1)%dis==0){
+        b = (goal-1)/dis;
+        b += (cur-1)/dis;
+        if((cur-1)%dis) ++b;
+        f=0;
+    }
+    if((n-goal)%dis==0){
+        c = (n-goal)/dis;
+        c += (n-goal)/dis;
+        if((n-goal)%dis) ++c;
+        f=0;
+    }
+
+    if(f) cout<<-1 <<'\n';
+    else cout<<min(a,min(b,c)) <<'\n';
+}
+
+
+int main(){
+
+    #ifndef ONLINE_JUDGE
+        freopen("in.txt", "r", stdin);
+        freopen("out.txt", "w", stdout);
+    #endif
+
+    optimize();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
