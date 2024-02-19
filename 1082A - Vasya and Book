@@ -13,11 +13,11 @@ using namespace std;
 
 void solve(){
     ll n, cur, goal, dis; cin>>n >>cur >>goal >>dis;
-    if(goal<cur) swap(goal,cur);
+    // if(goal<cur) swap(goal,cur);
     bool f=1;
     ll a=1e10, b=1e10, c=1e10;
-    if((goal-cur)%dis==0){
-        a = (goal-cur)/dis;
+    if(abs(goal-cur)%dis==0){
+        a = abs(goal-cur)/dis;
         f=0;
     }
     if((goal-1)%dis==0){
@@ -28,8 +28,8 @@ void solve(){
     }
     if((n-goal)%dis==0){
         c = (n-goal)/dis;
-        c += (n-goal)/dis;
-        if((n-goal)%dis) ++c;
+        c += (n-cur)/dis;
+        if((n-cur)%dis) ++c;
         f=0;
     }
 
