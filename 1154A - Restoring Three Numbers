@@ -1,0 +1,35 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 22-February-2024  00:11:59
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    vector<ll> v(4);
+    for(auto &i: v) cin>>i;
+    sort(v.begin(), v.end());
+    cout<<v[3]-v[0] <<' ' <<v[3]-v[1] <<' ' <<v[3]-v[2] <<'\n';
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
