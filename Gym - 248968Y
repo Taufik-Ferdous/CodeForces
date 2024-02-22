@@ -1,0 +1,39 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 09-February-2024  23:40:43
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+ll N = 1e5+5;
+ll mod = 998244353;
+
+vector<ll> v(N+10);
+
+void lulu(){
+    v[0]=0;
+    v[1]=1;
+    for(ll i=2; i<N; ++i) v[i] = (v[i-1]%mod + v[i-2]%mod)%mod;
+}
+
+void solve(){
+    ll n; cin>>n;
+    cout<<v[n] <<'\n';
+}
+
+
+int main(){
+    optimize();
+    lulu();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
