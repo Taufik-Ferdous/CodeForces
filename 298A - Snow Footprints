@@ -1,0 +1,80 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 23-February-2024  09:19:19
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    string s; cin>>s;
+    
+    ll l=-1, r=-1;
+
+    for(ll i=0; i<n; ++i){
+        if(s[i]=='R'){
+            l=i+1;
+            break;
+        }
+    }
+    if(l==-1){
+        for(ll i=0; i<n; ++i){
+            if(s[i]=='L'){
+                l=i+1;
+            }
+        }
+        for(ll i=0; i<n; ++i){
+            if(s[i]=='L'){
+                r=i;
+                break;
+            }
+        }
+        cout<<l <<' ' <<r <<'\n';
+        return;
+    }
+    for(ll i=0; i<n; ++i){
+        if(s[i]=='L'){
+            r=i;
+            break;
+        }
+    }
+    if(r==-1){
+        for(ll i=0; i<n; ++i){
+            if(s[i]=='R'){
+                r=i+2;
+            }
+        }
+        for(ll i=0; i<n; ++i){
+            if(s[i]=='L'){
+                l=i+1;
+                break;
+            }
+        }
+        cout<<l <<' ' <<r <<'\n';
+        return;
+    }
+
+    cout<<l <<' ' <<r <<'\n';
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
