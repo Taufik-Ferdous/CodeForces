@@ -1,0 +1,43 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 23-February-2024  10:10:07
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+vector<ll> v = {1, 6, 28, 120, 496, 2016, 8128, 32640, 130816, 523776, 2096128, 8386560, 33550336};
+
+void solve(){
+    map<ll,bool> m;
+    for(auto i: v) m[i]=true;
+    ll n; cin>>n;
+    ll ans = 1;
+    for(ll i=1; i*i<=n; ++i)
+        if(n%i==0){
+            if(i>ans) if(m[i]) ans = i;
+            if((n/i)>ans) if(m[(n/i)]) ans = n/i;
+        }
+    cout<<ans <<'\n';
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
