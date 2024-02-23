@@ -1,0 +1,62 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 23-February-2024  20:58:47
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+ll N = 3*1e5+10;
+
+void solve(){
+    ll m, s; cin>>m >>s;
+    ll rest = 0;
+    map<ll, pair<ll, ll>> mp;
+
+    vector<pair<ll, ll>> v(m);
+    for(auto &i: v) cin>>i.second;
+    for(auto &i: v) cin>>i.first;
+
+    for(auto i: v){
+        if(i.first<0){
+            mp[(i.first*=-1)].first=i.second;
+        }
+        else{
+            mp[i.first].second=i.second;
+        }
+    }
+
+    ll last = 0;
+    for(auto i: mp){
+        rest+=(i.first-last)*s;
+        last=i.first;
+        ll sum = i.second.first+i.second.second;
+        rest-=sum;
+        if(rest<0){
+            cout<<"NO\n";
+            return;
+        }
+    }
+    cout<<"YES\n";
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
