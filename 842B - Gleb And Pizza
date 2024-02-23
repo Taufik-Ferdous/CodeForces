@@ -1,0 +1,47 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 23-February-2024  11:18:41
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    double R, D; cin>>R >>D;
+    double R_D = (R-D) *1.0;
+    
+    ll n; cin>>n;
+    ll ans = 0;
+
+    while(n--){
+        double x, y, r; cin>>x >>y >>r;
+        x*=1.0, y*=1.0, r*=1.0;
+
+        double O_r = (sqrt(x*x+y*y))-r;
+        double O_R = (sqrt(x*x+y*y))+r;
+
+        if(O_r>=R_D && O_R<=R) ++ans;
+    }
+    cout<<ans <<'\n';
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
