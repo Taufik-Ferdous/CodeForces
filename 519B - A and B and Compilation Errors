@@ -1,0 +1,47 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 24-February-2024  20:33:17
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    ll a=n, b=n-1, c=n-2;
+    ll sum1=0, sum2=0, sum3=0;
+    while(a--){
+        ll dum; cin>>dum;
+        sum1+=dum;
+    }
+    while(b--){
+        ll dum; cin>>dum;
+        sum2+=dum;
+    }
+    while(c--){
+        ll dum; cin>>dum;
+        sum3+=dum;
+    }
+    cout<<sum1-sum2 <<'\n' <<sum2-sum3 <<'\n';
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
