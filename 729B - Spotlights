@@ -1,0 +1,86 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 26-February-2024  11:31:08
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    // input
+    ll row, col; cin>>row >>col;
+    vector<vector<ll>> v(row);
+    for(auto &i: v){
+        vector<ll> tmp(col);
+        for(auto &j: tmp) cin>>j;
+        i=tmp;
+    }
+
+    ll ans = 0;
+    // Action for row
+    for(ll i=0; i<row; ++i){
+
+        ll l=-1, r=-1, count=0;
+        for(ll j=0; j<col; ++j){
+            if(v[i][j]==1){
+                ++count;
+                if(l==-1) l=j;
+                else r=j;
+            }
+        }
+        
+        if(r!=-1){
+            ans+=l;
+            ans+=((r-(l+1)-(count-2))*2);
+            ans+=(col-(r+1));
+        }
+        else if(l!=-1) ans+=(col-1);
+        
+        l=-1, r=-1, count=0;
+    }
+    // Action for col
+    for(ll i=0; i<col; ++i){
+
+        ll l=-1, r=-1, count=0;
+        for(ll j=0; j<row; ++j){
+            if(v[j][i]==1){
+                ++count;
+                if(l==-1) l=j;
+                else r=j;
+            }
+        }
+        
+        if(r!=-1){
+            ans+=l;
+            ans+=((r-(l+1)-(count-2))*2);
+            ans+=(row-(r+1));
+        }
+        else if(l!=-1) ans+=(row-1);
+        
+        l=-1, r=-1, count=0;
+    }
+
+
+    cout<<ans <<'\n';
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
