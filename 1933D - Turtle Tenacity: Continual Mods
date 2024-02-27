@@ -1,0 +1,41 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 27-February-2024  21:22:57
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    map<ll, ll> m;
+    ll prev=0;
+    while(n--){
+        ll i; cin>>i;
+        m[i]++;
+        prev= __gcd(i, prev);
+    }
+    if(m[prev]>1) cout<<"NO\n";
+    else cout<<"YES\n";
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
