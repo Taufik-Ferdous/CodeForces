@@ -1,0 +1,40 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 27-February-2024  23:42:57
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    string s; cin>>s;
+    ll pos=0;
+    ll ans = 0;
+    for(ll i=0; i<s.length(); ++i){
+        ll dis = min(abs(pos-(s[i]-'a')), (abs(26-abs(pos-(s[i]-'a')))));
+        ans +=dis;
+        pos = s[i]-'a';
+    }
+    cout<<ans <<'\n';
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
