@@ -1,0 +1,46 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 01-March-2024  23:37:25
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin >> n;
+    vector<ll> v = {15, 10, 6, 3, 1};
+    ll ans = n;
+    for(ll i=0; i<5; ++i){
+        for(ll j=0; j<5; ++j){
+            for(ll k=0; k<5; ++k){
+                for(ll l=0; l<5; ++l){
+                    ll val = i*10 + j*6 + k*3 + l*1;
+                    if (n-val >= 0 && (n-val) % 15 == 0)
+                        ans = min(ans, i+j+k+l + ((n-val)/15));
+                }
+            }
+        }
+    }
+    cout << ans << endl; 
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
