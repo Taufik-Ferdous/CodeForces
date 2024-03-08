@@ -1,0 +1,51 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 08-March-2024  23:30:40
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    ll ans=0;
+    if(n>=100){
+        ans+=n/100;
+        n%=100;
+    }
+    if(n>=20){
+        ans+=n/20;
+        n%=20;
+    }
+    if(n>=10){
+        ans+=n/10;
+        n%=10;
+    }
+    if(n>=5){
+        ans+=n/5;
+        n%=5;
+    }
+    ans+=n;
+    cout<<ans <<'\n';
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
