@@ -1,0 +1,50 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 10-March-2024  12:17:27
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+ll N = 1e18;
+
+void solve(){
+    ll n, s; cin>>n >>s;
+    vector<ll> v(n);
+    for(auto &i: v) cin>>i;
+    ll ans=0, low=0, high=1e9;
+    while(low <= high){
+        ll mid = (low+high)/2;
+        unsigned ll dum = 0;
+        for(ll i=0; i<n; ++i){
+            dum += (v[i]+mid)*(v[i]+mid);
+            if(dum>s) break;
+        }
+        if(dum<s) low=mid+1;
+        else{
+            high=mid-1;
+            ans = mid;
+        }
+    }
+    cout<<ans/2 <<'\n';
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
