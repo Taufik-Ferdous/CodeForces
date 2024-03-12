@@ -1,0 +1,47 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 10-March-2024  13:01:54
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+vector<ll> v;
+
+void lulu(){
+    v.push_back(0);
+    for(ll i=19; i<10800101; ++i){
+        ll sum=0, dum=i;
+        while(dum>0){
+            sum+=(dum%10);
+            dum/=10;
+        }
+        if(sum == 10) v.push_back(i);
+    }
+}
+
+void solve(){
+    ll n; cin>>n;
+    cout<<v[n];
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+    lulu();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
